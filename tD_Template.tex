@@ -1,0 +1,80 @@
+\documentclass[spanish,11pt,onecolumn,letterpaper,table]{article}
+
+% ----- Tipografía y Formato -----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage[margin=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{microtype}
+\usepackage{adjustbox}
+
+% ----- Fuentes y Estilo -----
+\usepackage{mathptmx}
+
+% ----- Variables de Pandoc -----
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% ----- Configuración de Tablas -----
+\usepackage{longtable,booktabs,array,colortbl,calc}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{12pt}
+\arrayrulecolor{gray!40}
+
+% ----- Encabezados y Pies de Página -----
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\lhead{\textcolor{gray!80}{\small $header-left$}}
+\rhead{\textcolor{gray!80}{\small \thepage}}
+
+% ----- Estructura de Títulos -----
+\usepackage{titlesec}
+\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection})}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{\MakeUppercase}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+% ----- Formato para el Resumen -----
+\renewenvironment{abstract}{
+    \begin{center}
+        \small\itshape\bfseries Resumen
+    \end{center}
+    \quotation\small\itshape
+}{
+    \endquotation
+}
+
+\begin{document}
+
+% ----- Portada -----
+\begin{center}
+    \vspace*{0.5cm}
+    {\huge \bfseries $title$ \par}
+    \vspace{1.2cm}
+    {\large \bfseries $author$ \par}
+    \vspace{0.3cm}
+    {\itshape $degree$ \\
+    $course$ \\
+    $university$ \par}
+    \vspace{0.8cm}
+    {\small $location$ | $date$ | \texttt{$email$} \par}
+    \vspace{1cm}
+\end{center}
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$body$
+
+\end{document}
