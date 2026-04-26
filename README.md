@@ -28,15 +28,15 @@ winget install --id JohnMacFarlane.Pandoc
 winget install --id MiKTeX.MiKTeX
 pip install pypandoc
 ```
-*(Nota: Asegúrate de configurar MiKTeX para instalar paquetes "On-the-fly" o "Sobre la marcha").*
+*(Nota: Configurar MiKTeX para instalar paquetes "On-the-fly" o "Sobre la marcha").*
 
 ## Estructura del Directorio
 
 Tu espacio de trabajo debe contener al menos los siguientes archivos:
 
 ```text
-📁 Proyecto_Documentacion/
-├── 📄 compilador_final.py          # Script principal de la cadena de producción
+📁 Proyecto/
+├── 📄 MD_Tex_tD.py.py              # Script principal de la cadena de producción
 ├── 📄 plantilla_profesional.tex    # Plantilla de diseño LaTeX
 └── 📄 Reporte_Proyecto.md          # Tu documento fuente escrito en Markdown
 ```
@@ -63,27 +63,27 @@ header-left: " "
 ```
 
 ### 2. Jerarquía de Títulos
-Utiliza únicamente las marcas de Markdown para títulos. **No numeres los títulos manualmente**, la plantilla LaTeX lo hará automáticamente:
+Utilizar únicamente las marcas de Markdown para títulos. **No numerar los títulos manualmente**, la plantilla LaTeX lo hará automáticamente:
 * `# Título Principal` -> **I. TÍTULO PRINCIPAL**
 * `## Subtítulo` -> **A. Subtítulo**
 * `### Apartado` -> **1) Apartado**
 
 ### 3. Fórmulas y Matemáticas
-Usa la sintaxis estándar de LaTeX encerrada en signos de dólar `$$...$$` para bloques de ecuaciones, y `$ ... $` para matemáticas en línea. Al ser un formato de una columna, las matrices y ecuaciones largas (como entornos `cases`) encajarán perfectamente.
+Usar la sintaxis estándar de LaTeX encerrada en signos de dólar `$$...$$` para bloques de ecuaciones, y `$ ... $` para matemáticas en línea. Al ser un formato de una columna, las matrices y ecuaciones largas (como entornos `cases`) encajarán perfectamente.
 
 ### 4. Tablas
-Dibuja las tablas en Markdown estándar. El script de Python detectará la tabla y la inyectará en un entorno `table` ajustado al `\textwidth`. No intentes darles formato de ancho en el Markdown.
+Dibujar las tablas en Markdown estándar. El script de Python detectará la tabla y la inyectará en un entorno `table` ajustado al `\textwidth`. No intentes darles formato de ancho en el Markdown.
 
 ## Uso
 
-Una vez que tu archivo `.md` esté listo en Obsidian u otro editor:
+Con un archivo `.md` cumpliendo las especificaciones anteriores:
 
 1. Especificar el nombre del archivo Markdown en la variable `nombre_archivo` dentro de `MD_Tex_tD.py`.
-2. Activa tu entorno virtual (si aplica).
-3. Ejecuta el compilador:
+2. Activar entorno virtual (si aplica).
+3. Ejecutar el programa:
 
 ```bash
 python MD_Tex_tD.py
 ```
 
-El script imprimirá el progreso fase por fase y, al finalizar, tendrás tus archivos `.pdf`, `.docx` y `.tex` generados en el mismo directorio.
+El script imprimirá el progreso fase por fase y, al finalizar, tendrá archivos `.pdf`, `.docx` y `.tex` generados en el mismo directorio.
