@@ -1,16 +1,20 @@
 \documentclass[spanish,11pt,onecolumn,letterpaper,table]{article}
 
 % ----- Tipografía y Formato -----
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{babel}
 \usepackage[margin=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{microtype}
 \usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{xurl}
+\setlength{\emergencystretch}{3em}
 
-% ----- Fuentes y Estilo -----
-\usepackage{mathptmx}
+% ----- Fuentes y Estilo (LuaLaTeX) -----
+\usepackage{mathptmx} % Fuente Serif para el texto principal
+\usepackage{fontspec}
+% [NUEVO] Fuente monoespaciada con soporte para caracteres Unicode de árbol (├──, └──)
+\setmonofont{Consolas}[Scale=0.95]
 
 % ----- Variables de Pandoc -----
 $if(highlighting-macros)$
@@ -34,6 +38,9 @@ $endif$
 
 % ----- Estructura de Títulos -----
 \usepackage{titlesec}
+% [NUEVO] Solo autocompletar números (I, A, 1) hasta el nivel 3 (###).
+\setcounter{secnumdepth}{3}
+
 \renewcommand{\thesection}{\Roman{section}.}
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{subsubsection})}
@@ -41,6 +48,10 @@ $endif$
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{\MakeUppercase}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{1em}{}
 \titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+% [NUEVO] Arreglo para los #### (Paragraph). Los vuelve títulos en bloque reales.
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\paragraph}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
 
 % ----- Formato para el Resumen -----
 \renewenvironment{abstract}{

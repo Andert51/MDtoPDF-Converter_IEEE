@@ -4,7 +4,7 @@ author: Andrés Torres Ceja
 degree: Lic. Ingeniería en Sistemas Computacionales
 course: Ciencias de la Computación “Soft Computing CI”
 university: Universidad de Guanajuato - DICIS
-date: A sábado 25 de abril de 2026
+date: A domingo 26 de abril de 2026
 location: Salamanca, Guanajuato, México
 email: a.torresceja@ugto.mx
 header-left: LIC. INGENIERÍA EN SISTEMAS COMPUTACIONALES
@@ -285,14 +285,14 @@ GraphUG/
 
 El sistema utiliza el mecanismo de **señales y slots** de Qt para comunicación desacoplada:
 
-| Señal | Emisor | Receptor | Datos |
-|---|---|---|---|
-| `input_submitted` | `EditorPanel` | `MainController.handle_input` | `str` |
-| `result_ready` | `MainController` | `MainWindow.show_result` | `str` |
-| `error_occurred` | `MainController` | `MainWindow.show_error` | `str` |
-| `session_reset_requested` | `MainWindow` | `MainController.reset_session` | — |
-| `canvas_clear_requested` | `MainWindow` | `MainController.clear_canvas` | — |
-| `mode_changed` | `CanvasPanel` | — | `str` ("2d"/"3d") |
+| Señal                     | Emisor           | Receptor                       | Datos             |
+|---------------------------|------------------|--------------------------------|-------------------|
+| `input_submitted`         | `EditorPanel`    | `MainController.handle_input`  | `str`             |
+| `result_ready`            | `MainController` | `MainWindow.show_result`       | `str`             |
+| `error_occurred`          | `MainController` | `MainWindow.show_error`        | `str`             |
+| `session_reset_req`       | `MainWindow`     | `MainController.reset_session` | NULL              |
+| `canvas_clear_req`        | `MainWindow`     | `MainController.clear_canvas`  | NULL              |
+| `mode_changed`            | `CanvasPanel`    | NULL                           | `str` ("2d"/"3d") |
 
 ## Motor de Álgebra Simbólica
 
