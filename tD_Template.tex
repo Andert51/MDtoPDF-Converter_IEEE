@@ -13,13 +13,24 @@
 % ----- Fuentes y Estilo (LuaLaTeX) -----
 \usepackage{mathptmx} % Fuente Serif para el texto principal
 \usepackage{fontspec}
-% [NUEVO] Fuente monoespaciada con soporte para caracteres Unicode de árbol (├──, └──)
+% Fuente monoespaciada con soporte para caracteres Unicode
 \setmonofont{Consolas}[Scale=0.95]
 
 % ----- Variables de Pandoc -----
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
+
+% ----- Gráficos e Imágenes -----
+\usepackage{graphicx}
+\usepackage{float}
+
+% Logica para imágenes sin deformarlas
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 % ----- Configuración de Tablas -----
 \usepackage{longtable,booktabs,array,colortbl,calc}
